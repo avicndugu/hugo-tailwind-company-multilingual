@@ -1,10 +1,10 @@
 ---
-title: "How to Make Data-driven Pricing Decisions"
-description: "post 4 description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy."
-date: 2023-04-15T09:00:00-07:00
+title: "Jinsi ya Kuboresha Ufanisi wa Ankarama Zinazorudiwa"
+description: "post 3 description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy."
+date: 2023-03-15T09:00:00-07:00
 author: "Luke Matthewss"
 image: "/images/team-photo-2.png"
-featured: true
+
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dignissim dolor et dui bibendum aliquam. Mauris a quam sit amet dui auctor dictum eget a elit. Pellentesque varius diam risus, ut condimentum lorem volutpat vel.

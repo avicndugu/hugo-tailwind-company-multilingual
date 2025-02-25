@@ -1,8 +1,131 @@
 baseURL: "https://example.org/"
 languageCode: "en-us"
-title: "finsweet"
 
 theme: "hugo-tailwind-theme"
+
+defaultContentLanguage: en
+# defaultContentLanguageInSubdir: true
+languages:
+  en:
+    # contentDir: content/en
+    disabled: false
+    languageCode: en-US
+    languageDirection: ltr
+    languageName: English
+    title: "finsweet"
+    weight: 1
+
+  sw:
+    # contentDir: content/sw
+    disabled: false
+    languageCode: sw-KE
+    languageDirection: ltr
+    languageName: Kiswahili
+    title: "finsweet"
+    weight: 2
+    menus:
+      main:
+        - name: "Nyumbani"
+          url: "/"
+          weight: 10
+        - name: "Bidhaa"
+          url: "/products/"
+          weight: 20
+        - name: "Bei"
+          url: "/pricing/"
+          weight: 30
+        - name: "Kuhusu Sisi"
+          url: "/about/"
+          weight: 40
+        - name: "Blogu"
+          url: "/blog/"
+          weight: 50
+        - name: "Mawasiliano"
+          url: "/contact/"
+          weight: 60
+    params:
+      description: "Maelezo ya nyumbani: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy."
+      logo:
+        image: "/images/logo-dark.png"
+        alt: "Finsweet"
+      default_hero_image:
+        image: "/images/team-photo-3.png"
+      cookie_consent: true
+      related_posts:
+        title: "Soma machapisho zaidi"
+      menu_button:
+        link: "https://github.com/avicndugu/hugo-tailwind-company"
+        text: "Github"
+      call_to_action:
+        title: "Je, uko tayari kukuza biashara yako pamoja nasi?"
+        content: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy."
+        button:
+          link: "/pricing/"
+          text: "Angalia Bei"
+      footer:
+        company:
+          title: "Kampuni"
+          list:
+            - name: "Kuhusu Sisi"
+              url: "/about/"
+            - name: "Kwa Nini Utuchague"
+              url: "/about/"
+            - name: "Bei"
+              url: "/pricing/"
+            - name: "Ushuhuda"
+              url: "/"
+        resources:
+          title: "Rasilimali"
+          list:
+            - name: "Sera ya Faragha"
+              url: "/"
+            - name: "Sheria na Masharti"
+              url: "/"
+            - name: "Blogu"
+              url: "/blog/"
+            - name: "Wasiliana Nasi"
+              url: "/contact/"
+        product:
+          title: "Bidhaa"
+          list:
+            - name: "Kifuatiliaji cha Muda"
+              url: "/products/"
+            - name: "Ratiba ya Muda"
+              url: "/products/"
+            - name: "Uzalishaji wa Wateja"
+              url: "/products/"
+            - name: "Usimamizi wa Miradi"
+              url: "/products/"
+            - name: "Ushirikiano wa Mbali"
+              url: "/products/"
+        newsletter:
+          image: "/images/logo-light.png"
+          content: "Jisajili kwenye Jarida Letu"
+          form:
+            placeholder: "Weka barua pepe yako"
+            button: "Jisajili"
+        copyright: |
+          [Kubadilishwa kwa Tailwind & Hugo na Avic Ndugu](https://avicndugu.com) -|- [Muundo na Finsweet](https://www.figma.com/community/file/1086672799312430578)
+
+        social:
+          - image: "/images/LinkedIn.svg"
+            alt: "LinkedIn"
+            link: "#"
+            width: 20
+          - image: "/images/Twitter.svg"
+            alt: "Twitter"
+            link: "#"
+            width: 20
+          - image: "/images/Instagram.svg"
+            alt: "Instagram"
+            link: "#"
+            width: 20
+          - image: "/images/Facebook.svg"
+            alt: "Facebook"
+            link: "#"
+            width: 20
+
+
 
 services:
   googleAnalytics:
@@ -14,6 +137,28 @@ imaging:
 
 author:
   name: "Default Author"
+
+
+menus:
+  main:
+    - name: "Home"
+      url: "/"
+      weight: 10
+    - name: "Products"
+      url: "/products/"
+      weight: 20
+    - name: "Pricing"
+      url: "/pricing/"
+      weight: 30
+    - name: "About Us"
+      url: "/about/"
+      weight: 40
+    - name: "Blog"
+      url: "/blog/"
+      weight: 50
+    - name: "Contact"
+      url: "/contact/"
+      weight: 60
 
 params:
   description: "Home description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy."
@@ -78,7 +223,6 @@ params:
         button: "Subscribe"
     copyright: |
       [Conversion to Tailwind & Hugo by Avic Ndugu](https://avicndugu.com) -|- [Design by Finsweet](https://www.figma.com/community/file/1086672799312430578)
-
     social:
       - image: "/images/LinkedIn.svg"
         alt: "LinkedIn"
@@ -98,30 +242,13 @@ params:
         width: 20
 
 
-menus:
-  main:
-    - name: "Home"
-      url: "/"
-      weight: 10
-    - name: "Products"
-      url: "/products/"
-      weight: 20
-    - name: "Pricing"
-      url: "/pricing/"
-      weight: 30
-    - name: "About Us"
-      url: "/about/"
-      weight: 40
-    - name: "Blog"
-      url: "/blog/"
-      weight: 50
-    - name: "Contact"
-      url: "/contact/"
-      weight: 60
-
 
 permalinks:
   posts: /blog/:title/
 
 
 
+
+frontmatter:
+  lastmod: ["lastmod", ":default"]
+  featured: ["false"] # Set Featured Post by default to false

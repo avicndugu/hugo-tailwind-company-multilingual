@@ -1,10 +1,10 @@
 ---
-title: "How to Make Data-driven Pricing Decisions"
-description: "post 4 description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy."
-date: 2023-04-15T09:00:00-07:00
+title: "Uuzaji wa Kulingana na Akaunti: Uchaguzi wa Kidata kwa Mafanikio ya ABM"
+description: "post 7 description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy."
+date: 2023-07-15T09:00:00-07:00
 author: "Luke Matthewss"
 image: "/images/team-photo-2.png"
-featured: true
+
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dignissim dolor et dui bibendum aliquam. Mauris a quam sit amet dui auctor dictum eget a elit. Pellentesque varius diam risus, ut condimentum lorem volutpat vel.

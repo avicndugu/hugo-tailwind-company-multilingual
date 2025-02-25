@@ -1,10 +1,10 @@
 ---
-title: "How to Make Data-driven Pricing Decisions"
-description: "post 4 description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy."
-date: 2023-04-15T09:00:00-07:00
+title: "Mikakati 10 ya Kuhifadhi Wateja kwa Muda Bora wa Kukaa"
+description: "post 1 description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy."
+date: 2023-01-15T09:00:00-07:00
 author: "Luke Matthewss"
-image: "/images/team-photo-2.png"
-featured: true
+image: "/images/team-photo-1.png"
+
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dignissim dolor et dui bibendum aliquam. Mauris a quam sit amet dui auctor dictum eget a elit. Pellentesque varius diam risus, ut condimentum lorem volutpat vel.
@@ -18,6 +18,8 @@ Ut non urna a odio condimentum dictum. Proin egestas erat a orci ultrices, vitae
 ### This is a small blog post headline h3
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dignissim dolor et dui bibendum aliquam. Mauris a quam sit amet dui auctor dictum eget a elit. Pellentesque varius diam risus, ut condimentum lorem volutpat vel. Nam vel orci pharetra eros pulvinar cursus nec quis tellus. Quisque feugiat tortor lectus, pretium interdum justo tincidunt a. Donec at congue lectus. Nulla facilisi. Phasellus consectetur sapien accumsan lectus tincidunt placerat. Etiam ornare nibh vel dui egestas, eu posuere metus convallis.
+
+{{< picture src="/images/team-photo-1.png" alt_text="working on computer" >}}
 
 > Ut non urna a odio condimentum dictum. Proin egestas erat a orci ultrices, vitae bibendum libero posuere. Quisque laoreet tincidunt justo. Vestibulum congue dictum libero finibus vehicula. Aliquam nisi velit, ultricies eget enim vel, venenatis mollis ante.
 

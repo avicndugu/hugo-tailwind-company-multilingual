@@ -13,37 +13,49 @@
                 {{ .content }}
             </p>
         </div>
+        {{/* Fetch the featured post */}}
+        {{ $blog := site.GetPage "posts" }}
+        {{ $featuredPost := index (where $blog.RegularPages "Params.featured" true) 0 }}
+
         {{ with .featured }}
+        {{ if $featuredPost }}
         <div class="container mx-auto lg:flex lg:justify-center gap-12 p-8 lg:p-16 border-[#D8D8D8] border rounded-3xl">
             <div>
                 <p class="text-2xl pb-6 font-bold bg-gradient-to-r from-custom-blue-dark from-15% to-custom-blue-light to-83% bg-clip-text text-transparent w-fit">
                     {{ .label }}
                 </p>
-                <a href="{{ .Permalink }}">
+                <a href="{{ $featuredPost.Permalink }}">
                     <h2 class="text-4xl lg:text-5xl font-bold pb-6">
-                        {{ .title }}
+                        {{ $featuredPost.Title }}
                     </h2>
                 </a>
                 <p class="text-base pb-8">
-                    {{ .content }}
+                    {{ with $featuredPost.Summary }}
+                        {{ if gt (len .) 180 }}
+                            {{ . | plainify | truncate 180 }}
+                        {{ else }}
+                            {{ . | plainify }}
+                        {{ end }}
+                    {{ end }}
                 </p>
                 <p class="text-base">
-                    {{ .author }} |  {{ .date }}
+                    {{ $featuredPost.Params.author }} |  {{  $featuredPost.Date.Format "Jan 2, 2006" }}
                 </p>
             </div>
             <div class="w-full">
-            {{ $image := resources.GetMatch .image }}
-            <a href="{{ .Permalink }}" class="block bg-cover bg-no-repeat bg-center w-full h-64 lg:h-80 rounded-xl mt-8"
-                style="background-image: url('
-                {{- with $image -}}
-                    {{- with .Resize "x500 webp" -}}
-                        {{- .RelPermalink -}}
+                {{ $image := resources.GetMatch $featuredPost.Params.image }}
+                <a href="{{ $featuredPost.Permalink }}" class="block bg-cover bg-no-repeat bg-center w-full h-64 lg:h-80 rounded-xl mt-8"
+                    style="background-image: url('
+                    {{- with $image -}}
+                        {{- with .Resize "x500 webp" -}}
+                            {{- .RelPermalink -}}
+                        {{- end -}}
                     {{- end -}}
-                {{- end -}}
-                ');">
-            </a>
+                    ');">
+                </a>
+            </div>
         </div>
-        </div>
+        {{ end }}
         {{ end }}
     </div>
 </section>
@@ -70,24 +82,24 @@
                 {{ range $blog.RegularPages }}
                 <div class="mb-16">
                     <a href="{{ .Permalink }}">
-                    <div class="bg-cover bg-no-repeat bg-center w-full h-64 rounded-xl mb-8"
-                        style="background-image: url('{{- if .Params.image -}}
-                            {{- $image := resources.GetMatch .Params.image -}}
-                            {{- with $image -}}
-                                {{- with .Resize "400x webp" -}}
-                                    {{- .RelPermalink -}}
-                                {{- end -}}
-                            {{- end -}}
-                            {{- else -}}
-                            {{- $image := resources.GetMatch .Site.Params.default_hero_image.image -}}
+                        <div class="bg-cover bg-no-repeat bg-center w-full h-64 rounded-xl mb-8"
+                            style="background-image: url('{{- if .Params.image -}}
+                                {{- $image := resources.GetMatch .Params.image -}}
                                 {{- with $image -}}
-                                {{- with .Resize "400x webp" -}}
-                                    {{- .RelPermalink -}}
+                                    {{- with .Resize "400x webp" -}}
+                                        {{- .RelPermalink -}}
+                                    {{- end -}}
                                 {{- end -}}
-                                {{- end -}}
-                            {{- end -}}');">
+                                {{- else -}}
+                                {{- $image := resources.GetMatch .Site.Params.default_hero_image.image -}}
+                                    {{- with $image -}}
+                                    {{- with .Resize "400x webp" -}}
+                                        {{- .RelPermalink -}}
+                                    {{- end -}}
+                                    {{- end -}}
+                                {{- end -}}');">
 
-                    </div>
+                        </div>
                     </a>
                     <div>
                         <a href="{{ .Permalink }}" class="text-2xl font-bold mb-4">

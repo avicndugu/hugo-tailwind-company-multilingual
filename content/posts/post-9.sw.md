@@ -1,15 +1,17 @@
 ---
-title: "How to Make Data-driven Pricing Decisions"
-description: "post 4 description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy."
-date: 2023-04-15T09:00:00-07:00
+title: "Matumizi 7 ya Uendeshaji Kiotomatiki Yanayoboreshwa kwa Uzoefu Bora wa Wateja"
+description: "post 9 description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy."
+date: 2023-09-15T09:00:00-07:00
 author: "Luke Matthewss"
-image: "/images/team-photo-2.png"
-featured: true
+image: "/images/team-photo-1.png"
+
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dignissim dolor et dui bibendum aliquam. Mauris a quam sit amet dui auctor dictum eget a elit. Pellentesque varius diam risus, ut condimentum lorem volutpat vel.
 
+
 ## This is a blog post headline h2
+
 
 Nam vel orci pharetra eros pulvinar cursus nec quis tellus. Quisque feugiat tortor lectus, pretium interdum justo tincidunt a. Donec at congue lectus. Nulla facilisi. Phasellus consectetur sapien accumsan lectus tincidunt placerat. Etiam ornare nibh vel dui egestas, eu posuere metus convallis.
 
