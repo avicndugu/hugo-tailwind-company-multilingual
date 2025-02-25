@@ -1,0 +1,97 @@
+{{ define "main" }}
+
+
+<div class="bg-contact-us-gradient bg-left bg-no-repeat">
+    {{ with .Params.hero }}
+    {{ if .enabled }}
+    <section class="text-center">
+        <div>
+            <div class="max-w-3xl mx-auto pt-24 pb-16">
+                <h1 class="text-5xl lg:text-6xl font-bold">
+                    {{ .title }}
+                </h1>
+            </div>
+        </div>
+    </section>
+    {{ end }}
+    {{ end }}
+
+    {{ with .Params.contacts }}
+    {{ if .enabled }}
+    <section class="container mx-auto px-4 lg:px-0 max-w-screen-xl">
+        <div class="bg-[#F0F2FE] rounded-3xl p-8 lg:p-16">
+            <div class="pb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold pb-4">
+                    {{ .title }}
+                </h2>
+                <p>
+                    {{ .content }}
+                </p>
+            </div>
+            <div class="text-lg lg:flex">
+                {{ with .form_details }}
+                <div class="mb-12 lg:mb-0 basis-3/5">
+                    <div class="">
+                        <div class="max-w-xl">
+                            <form class="grid grid-cols-1 gap-6">
+                                <div class="sm:flex gap-6">
+                                    {{ range .half }}
+                                    <label class="block flex-1 mb-6 sm:mb-0">
+                                        <input type="text" class="mt-1 pl-6 rounded-xl h-16 block w-full placeholder:text-custom-dark placeholder:opacity-80 placeholder:text-base" placeholder="{{ .placeholder }}" />
+                                    </label>
+
+                                    {{ end }}
+                                </div>
+                                {{ range .full }}
+                                <label class="block">
+                                    <input type="text" class="mt-1 pl-6 rounded-xl h-16 block w-full placeholder:text-custom-dark placeholder:opacity-80 placeholder:text-base" placeholder="{{ .placeholder }}" />
+                                </label>
+                                {{ end }}
+                                {{ range .message }}
+                                <label class="block">
+                                    <textarea class="mt-1 pl-6 pt-6 rounded-xl h-36 block w-full resize-none placeholder:text-custom-dark placeholder:opacity-80 placeholder:text-base" rows="3" placeholder="{{ .placeholder }}"></textarea>
+                                </label>
+                                {{ end }}
+                                <div class="block">
+                                    <div class="mt-2">
+                                        <div>
+                                            <button type="submit" class="bg-custom-dark text-white font-medium text-base px-10 py-4 rounded-2xl w-full">
+                                                Send
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {{ end }}
+
+                {{ with .contact_details }}
+                <div class="lg:pl-8 lg:pr-8 mb-6 lg:mb-0 basis-2/5">
+                    {{ range . }}
+                    <div class="flex flex-wrap gap-6 pb-12">
+                        <div>
+                            {{ partial "icon.html" . }}
+                        </div>
+                        <div>
+                            <p class="text-xl sm:text-2xl font-bold pb-1">
+                                {{ .title }}
+                            </p>
+                            <p class="text-base opacity-60">
+                                {{ .content }}
+                            </p>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </section>
+</div>
+
+{{ end }}
+{{ end }}
+
+{{ end }}

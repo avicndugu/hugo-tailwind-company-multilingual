@@ -1,0 +1,14 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0">
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+{{ if .IsHome -}}
+ <meta name="description" content="{{ site.Params.Description }}" />
+{{- else -}}
+ <meta name="description" content="{{ .Params.Description }}" />
+{{- end }}
+{{- partialCached "head/css.html" . -}}
+{{- partialCached "head/js.html" . -}}
+{{- if hugo.IsProduction -}}
+    {{- partial "google_analytics.html" . -}}
+{{- end -}}
+

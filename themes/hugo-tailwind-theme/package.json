@@ -1,0 +1,17 @@
+{
+  "name": "hugo-tailwind-theme",
+  "version": "1.0.0",
+  "description": "## Features",
+  "main": "index.js",
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.10",
+    "tailwindcss": "^3.4.1"
+  },
+  "scripts": {
+    "build": "npx tailwindcss -i ./tailwind.css -o ./assets/css/style.css",
+    "watch": "npx tailwindcss -i ./tailwind.css -o ./assets/css/style.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

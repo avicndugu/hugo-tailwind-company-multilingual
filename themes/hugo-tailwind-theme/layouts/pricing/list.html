@@ -1,0 +1,117 @@
+{{ define "main" }}
+
+{{ with .Params.hero }}
+{{ if .enabled }}
+
+<section class="bg-pricing-gradient-1-2 md:pricing-gradient-1-2-md bg-no-repeat pb-32 px-5 2xl:px-0">
+        <div class="container mx-auto max-w-screen-xl">
+            <div class="pt-24">
+                <div class="max-w-xl mx-auto text-center">
+                    <h1 class="text-5xl lg:text-6xl font-bold mb-6">
+                        {{ .title }}
+                    </h1>
+                    <p class="mb-6 text-lg">
+                        {{ .content }}
+                    </p>
+                    {{ with .buttons }}
+                    <div class="w-fit mx-auto bg-sky-100 p-2 rounded-2xl">
+                        <a href="{{ .solid.link }}" class="bg-custom-dark text-white font-medium text-base px-10 py-4 rounded-xl lg:mr-6 inline-block">
+                            {{ .solid.text }}
+                        </a>
+                        <a href="{{ .outline.link }}" class="border-transparent border-2 hover:border-slate-300 bg-transparent text-sky-950 font-medium text-base px-10 py-4 rounded-xl inline-block">
+                            {{ .outline.text }}
+                        </a>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+            <div class="text-lg flex flex-wrap gap-7 py-16 rounded-3xl mx-7 lg:mx-0">
+                {{ range .package }}
+                <div class="mb-6 lg:mb-0 flex-1 py-12 rounded-3xl max-w-sm border-4 {{ if .highlighted }} bg-pricing-gradient-3 bg-no-repeat bg-cover border-[#6B7CFF] {{ else }} bg-white border-white {{ end }} hover:border-[#6B7CFF] hover:border-4">
+                    <div class="border-b-2">
+                        <div class="flex flex-wrap gap-6 px-12 pb-8">
+                            {{ partial "icon.html" . }}
+                            <div>
+                                <h3 class="text-3xl lg:text-4xl font-bold">
+                                    {{ .title }}
+                                </h3>
+                                <p class="text-base">
+                                    {{ .label }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-12">
+                        <ul class="pl-8 pt-8 space-y-2 text-base">
+                            {{ range .features.feature }}
+                            <li class="flex items-start gap-2 pl-8 relative">
+                              <img src="/images/icon-checkmark.svg" class="absolute left-0 top-0 size-6" >
+                              <span>{{ . }}</span>
+                            </li>
+                            {{ end }}
+                        </ul>
+                        <p class="text-center pt-8 text-sm">
+                            {{ .features.summary }}
+                        </p>
+                        <p class="text-center pt-12 text-3xl lg:text-4xl font-bold">
+                            {{ .price }}
+                        </p>
+                        <p class="text-center pb-6">
+                            {{ .period }}
+                        </p>
+                        {{ with .button }}
+                        <div class="flex justify-center">
+                            <a href="{{ .link }}" class="bg-custom-dark text-white font-medium text-base px-10 py-4 rounded-2xl">
+                                {{ .text }}
+                            </a>
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </section>
+{{ end }}
+{{ end }}
+{{ with .Params.faqs }}
+{{ if .enabled }}
+    <div class="bg-[#F0F2FE]">
+        <section class="px-5 2xl:px-0">
+            <div class="container mx-auto px-4 lg:px-0 py-16 text-lg lg:flex gap-x-16 max-w-screen-xl">
+                <div class="flex-1 basis-5/12">
+                    <h2 class="text-4xl lg:text-5xl font-bold pb-7">
+                        {{ .title }}
+                    </h2>
+                    <p class="pb-8 text-base">
+                        {{ .content }}
+                    </p>
+                </div>
+                <div class="flex-1 basis-7/12">
+                    {{ range $index, $element := .faq }}
+                    <details class="bg-white p-10 rounded-3xl mb-4 group" {{ if eq $index 0 }} open {{ end }}>
+                        <summary class="block cursor-pointer flex justify-between items-center">
+                            <h3 class="text-2xl font-bold">
+                                {{ .title }}
+                            </h3>
+                            <div class="block group-open:hidden">
+                                <img src="/images/icon-plus.svg" width="20" height="20">
+                            </div>
+                            <div class=" hidden group-open:block">
+                                <img src="/images/icon-minus.svg"  width="20" height="20">
+                            </div>
+                        </summary>
+                        <p class="mt-4 text-base">
+                            {{ .content }}
+                        </p>
+                    </details>
+                    {{ end }}
+                </div>
+            </div>
+        </section>
+    </div>
+
+{{ end }}
+{{ end }}
+
+{{ end }}

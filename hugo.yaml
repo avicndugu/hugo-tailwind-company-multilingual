@@ -1,0 +1,127 @@
+baseURL: "https://example.org/"
+languageCode: "en-us"
+title: "finsweet"
+
+theme: "hugo-tailwind-theme"
+
+services:
+  googleAnalytics:
+    ID: G-MEASUREMENT_ID
+
+imaging:
+  quality: 100
+
+
+author:
+  name: "Default Author"
+
+params:
+  description: "Home description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy."
+  logo:
+    image: "/images/logo-dark.png"
+    alt: "Finsweet"
+  default_hero_image:
+    image: "/images/team-photo-3.png"
+  cookie_consent: true
+  related_posts:
+    title: "Read more posts"
+  menu_button:
+    link: "https://github.com/avicndugu/hugo-tailwind-company"
+    text: "Github"
+  call_to_action:
+    title: "Are you ready to grow your business with us?"
+    content: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy."
+    button:
+      link: "/pricing/"
+      text: "View Pricing"
+  footer:
+    company:
+      title: "Company"
+      list:
+        - name: "About Us"
+          url: "/about/"
+        - name: "Why Choose Us"
+          url: "/about/"
+        - name: "Pricing"
+          url: "/pricing/"
+        - name: "Testimonial"
+          url: "/"
+    resources:
+      title: "Resources"
+      list:
+        - name: "Privacy Policy"
+          url: "/"
+        - name: "Terms and Conditions"
+          url: "/"
+        - name: "Blog"
+          url: "/blog/"
+        - name: "Contact Us"
+          url: "/contact/"
+    product:
+      title: "Product"
+      list:
+        - name: "Time Tracker"
+          url: "/products/"
+        - name: "Time Schedule"
+          url: "/products/"
+        - name: "Lead Generation"
+          url: "/products/"
+        - name: "Project Management"
+          url: "/products/"
+        - name: "Remote Collaboration"
+          url: "/products/"
+    newsletter:
+      image: "/images/logo-light.png"
+      content: "Subscribe to our Newsletter"
+      form:
+        placeholder: "Enter your email"
+        button: "Subscribe"
+    copyright: |
+      [Conversion to Tailwind & Hugo by Avic Ndugu](https://avicndugu.com) -|- [Design by Finsweet](https://www.figma.com/community/file/1086672799312430578)
+
+    social:
+      - image: "/images/LinkedIn.svg"
+        alt: "LinkedIn"
+        link: "#"
+        width: 20
+      - image: "/images/Twitter.svg"
+        alt: "Twitter"
+        link: "#"
+        width: 20
+      - image: "/images/Instagram.svg"
+        alt: "Instagram"
+        link: "#"
+        width: 20
+      - image: "/images/Facebook.svg"
+        alt: "Facebook"
+        link: "#"
+        width: 20
+
+
+menus:
+  main:
+    - name: "Home"
+      url: "/"
+      weight: 10
+    - name: "Products"
+      url: "/products/"
+      weight: 20
+    - name: "Pricing"
+      url: "/pricing/"
+      weight: 30
+    - name: "About Us"
+      url: "/about/"
+      weight: 40
+    - name: "Blog"
+      url: "/blog/"
+      weight: 50
+    - name: "Contact"
+      url: "/contact/"
+      weight: 60
+
+
+permalinks:
+  posts: /blog/:title/
+
+
+

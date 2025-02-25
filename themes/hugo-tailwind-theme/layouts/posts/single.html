@@ -1,0 +1,88 @@
+{{ define "main" }}
+
+<section class="bg-blogpost-gradient-1-2 bg-no-repeat px-5 2xl:px-0">
+    <div class="max-w-4xl mx-auto pt-24 pb-16 text-center">
+        <h1 class="text-5xl lg:text-6xl font-bold">
+            {{ .Title }}
+        </h1>
+        <p class="my-10 text-lg">
+            {{ if .Params.Author }}{{ .Params.Author }} {{ else }} {{ .Site.Author.name }} {{ end }} |  {{ if .Params.Date }}{{ .Params.Date | time.Format ":date_medium" }}{{ end }}
+        </p>
+    </div>
+    <div class="container mx-auto max-w-screen-xl lg:flex lg:justify-center gap-6">
+        <div class="bg-cover bg-no-repeat bg-center w-full h-80 lg:h-[512px] rounded-xl"
+            style="background-image: url('{{- if .Params.image -}}
+                {{- $image := resources.GetMatch .Params.image -}}
+                {{- with $image -}}
+                    {{- with .Resize "1000x webp" -}}
+                        {{- .RelPermalink -}}
+                    {{- end -}}
+                {{- end -}}
+                {{- else -}}
+                {{- $image := resources.GetMatch .Site.Params.default_hero_image.image -}}
+                    {{- with $image -}}
+                    {{- with .Resize "1000x webp" -}}
+                        {{- .RelPermalink -}}
+                    {{- end -}}
+                    {{- end -}}
+                {{- end -}}');">
+        </div>
+    </div>
+    <div class="container mx-auto max-w-3xl pt-16">
+        <div class="prose prose-h2:text-5xl prose-h2:mt-8 prose-h3:text-4xl prose-blockquote:text-lg prose-blockquote:font-normal prose-blockquote:not-italic prose-blockquote:border-[#E0E4FC] prose-p:mb-6 prose-p:font-normal prose-p:leading-normal max-w-none">
+            {{ .Content }}
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container mx-auto max-w-screen-xl pt-32 px-5 2xl:px-0">
+        <div class="text-center pb-12">
+            <h2 class="text-4xl lg:text-5xl font-bold pb-4">
+                {{ .Site.Params.related_posts.title }}
+            </h2>
+        </div>
+        <!-- Row -->
+        <div class="lg:flex gap-6">
+            {{ $blog := site.GetPage "blog" }}
+            {{ $filtered_blog:= where $blog.RegularPages "Params.Title" "ne" .Title }}
+            {{ range first 3 $filtered_blog }}
+            <div class="flex-1 mb-16">
+                <div class="bg-[url('images/team-photo-3.png')] bg-cover bg-no-repeat bg-center w-full h-64 rounded-xl mb-8"
+                    style="background-image: url('{{- if .Params.image -}}
+                    {{- $image := resources.GetMatch .Params.image -}}
+                    {{- with $image -}}
+                        {{- with .Resize "400x webp" -}}
+                            {{- .RelPermalink -}}
+                        {{- end -}}
+                    {{- end -}}
+                    {{- else -}}
+                    {{- $image := resources.GetMatch .Site.Params.default_hero_image.image -}}
+                        {{- with $image -}}
+                        {{- with .Resize "400x webp" -}}
+                            {{- .RelPermalink -}}
+                        {{- end -}}
+                        {{- end -}}
+                    {{- end -}}');">
+                </div>
+                <div>
+                    <a href="{{ .Permalink }}" class="text-2xl font-bold mb-4">
+                        {{ .Title }}
+                    </a>
+                    <p class="mb-4">
+                        {{ if gt (len .Summary) 90 }}
+                            {{slicestr .Summary 0 90}}
+                        {{ end }}
+                    </p>
+                    <p>
+                        {{ if .Params.Author }}{{ .Params.Author }} {{ else }} {{ .Site.Author.name }} {{ end }} |  {{ if .Params.Date }}{{ .Params.Date | time.Format ":date_medium" }}{{ end }}
+                    </p>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+        <!-- End Row -->
+    </div>
+</section>
+
+{{ end }}

@@ -1,0 +1,119 @@
+{{ with .Site.Params.call_to_action }}
+<section class="bg-cta-gradient bg-no-repeat bg-cover px-5 2xl:px-0">
+    <div class="container mx-auto py-20 lg:py-32 text-lg text-center max-w-2xl">
+        <h2 class="text-4xl lg:text-5xl font-bold pb-6">
+            {{ .title }}
+        </h2>
+        <p class="pb-8 text-base">
+           {{ .content }}
+        </p>
+        {{ with .button }}
+        <a href="{{ .link }}"  class="bg-custom-dark font-medium text-base text-white px-10 py-4 rounded-2xl">
+            {{ .text }}
+        </a>
+        {{ end }}
+    </div>
+</section>
+{{ end }}
+
+<footer class="bg-custom-dark text-white">
+    <div class="container px-5 2xl:px-0 py-6 lg:py-16 max-w-screen-xl">
+        <div class="pb-4 lg:pb-12 text-lg xl:flex justify-between gap-x-5">
+            <div class="flex-1 sm:flex justify-between gap-x-10">
+                {{ with .Site.Params.footer.company }}
+                <div class="pb-4 basis-full">
+                    <p class="text-lg font-bold">
+                        {{ .title  }}
+                    </p>
+                    <ul class="opacity-60 text-base">
+                        {{ range .list }}
+                        <li class="py-1">
+                            <a href="{{ .url }}">
+                                {{ .name }}
+                            </a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                </div>
+                {{ end }}
+                {{ with .Site.Params.footer.resources }}
+                <div class="pb-4 basis-full">
+                    <p class="text-lg font-bold">
+                        {{ .title }}
+                    </p>
+                    <ul class="opacity-60 text-base">
+                        {{ range .list }}
+                        <li class="py-1">
+                            <a href="{{ .url }}">
+                                {{ .name }}
+                            </a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                </div>
+                {{ end }}
+                {{ with .Site.Params.footer.product }}
+                <div class="pb-4 basis-full">
+                    <p class="text-lg font-bold">
+                        {{ .title }}
+                    </p>
+                    <ul class="opacity-60 text-base">
+                        {{ range .list }}
+                        <li class="py-1">
+                            <a href="{{ .url }}">
+                                {{ .name }}
+                            </a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                </div>
+            </div>
+            {{ end }}
+            {{ with .Site.Params.footer.newsletter }}
+            <div class="flex-none">
+                {{- $image := resources.GetMatch .image -}}
+                {{- $image_alt := .Site.Title -}}
+                {{- with $image -}}
+                    {{- with .Resize (printf "%dx%d webp" (mul .Width 2) (mul .Height 2)) }}
+                        <img src="{{ .RelPermalink }}" alt="{{ site.Title }}" width="{{ div .Width 2 }}" height="{{ div .Height 2 }}">
+                    {{- end -}}
+                {{- end -}}
+                <p class="py-4">
+                    {{ .content }}
+                </p>
+                <form class="py-6">
+                    <input type="email" name="email" placeholder="{{ .form.placeholder }}" class="h-15 px-8 rounded-2xl bg-custom-gray text-white text-base  w-full sm:w-fit">
+                    <button type="submit" class="px-10 py-4 rounded-2xl bg-white text-custom-dark font-bold mt-4 sm:mt-0 sm:-ml-10 w-full sm:w-fit">
+                        {{ .form.button }}
+                    </button>
+                </form>
+            </div>
+            {{ end }}
+        </div>
+        <div class="flex text-center text-sm items-center">
+            <div class="flex-1 h-[1px] md:bg-[#888888] hidden md:block me-6">
+            </div>
+            <div class="flex-2 flex justify-center flex-wrap gap-y-4 gap-x-6">
+                {{ with .Site.Params.footer.copyright | markdownify }}
+                <p>
+                    {{ . }}
+                </p>
+                {{ end }}
+                <div>
+                    {{ range .Site.Params.footer.social }}
+                    {{ $image := resources.GetMatch .image }}
+                    {{ $alt := .alt }}
+                    {{ $width := .width }}
+                    <a href="{{ .link }}" class="inline-block px-3 pb-4 lg:pb-0">
+                        {{- with $image -}}
+                            <img src="{{ .RelPermalink }}" alt="{{ $alt }}" width="{{ $width }}" height="{{ $width }}">
+                        {{- end -}}
+                    </a>
+                    {{ end }}
+                </div>
+            </div>
+            <div class="flex-1 h-[1px] md:bg-[#888888] hidden md:block ms-6">
+            </div>
+        </div>
+    </div>
+</footer>

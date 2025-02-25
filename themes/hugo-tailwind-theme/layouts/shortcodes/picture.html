@@ -1,0 +1,19 @@
+{{- with .Get "src" -}}
+    {{- $src := . -}}
+    {{- $image := resources.GetMatch $src -}}
+    {{- $image_alt := $.Get "alt_text" -}}
+    {{- with $image -}}
+        {{- if eq .MediaType.SubType "svg" -}}
+            <img src="{{- .RelPermalink -}}" alt="{{- with  $image_alt -}} {{- . -}}{{- end -}}">
+        {{- else -}}
+            <picture>
+                {{- with .Resize (printf "%dx%d webp" .Width .Height) -}}
+                    <source media="(min-width: 800px)" srcset="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" />
+                {{- end -}}
+                {{- with .Resize (printf "%dx%d webp" ( div .Width 2 ) ( div .Height 2) ) -}}
+                    <img src="{{ .RelPermalink }}" alt="{{- with  $image_alt -}} {{- . -}}{{- end -}}" width="{{ .Width }}" height="{{ .Height }}">
+                {{- end -}}
+            </picture>
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
