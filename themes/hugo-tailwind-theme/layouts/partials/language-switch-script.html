@@ -1,0 +1,22 @@
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const dropdownButton = document.getElementById('dropdownButton');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        const selectedLanguage = document.getElementById('selectedLanguage');
+
+        // Toggle Dropdown content visibility
+        dropdownButton.addEventListener('click', function(event) {
+            const isExpanded = dropdownButton.getAttribute('aria-expanded') === 'true';
+            dropdownButton.setAttribute('aria-expanded', !isExpanded);
+            dropdownMenu.classList.toggle('hidden');
+            event.stopPropagation();
+        });
+        // Close dropdown on clicking outside the dropdown
+        document.addEventListener('click', function(event) {
+            if (!dropdownMenu.classList.contains('hidden') && !dropdownButton.contains(event.target)) {
+                dropdownMenu.classList.add('hidden');
+                dropdownButton.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
+</script>

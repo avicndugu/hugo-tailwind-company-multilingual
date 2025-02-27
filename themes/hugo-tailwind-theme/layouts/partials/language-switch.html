@@ -1,0 +1,18 @@
+{{ if .IsTranslated }}
+<div class="relative max-w-20 mx-auto">
+    <button id="dropdownButton" class="px-4 py-2 w-20 rounded-lg flex justify-between items-center" aria-haspopup="true" aria-expanded="false" aria-controls="dropdownMenu">
+        <span id="selectedLanguage">{{ .Site.Language.Lang | upper }}</span>
+        <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+    </button>
+    
+    <div id="dropdownMenu" class="hidden absolute right-0 mt-2 w-20 bg-white border border-gray-300 rounded-lg shadow-lg" role="menu">
+        {{ range .AllTranslations }}
+        <a href="{{ .RelPermalink }}" class="block w-full text-left px-4 py-2 hover:bg-gray-200"  role="menuitem">
+            {{ .Language.Lang | upper }}
+        </a>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

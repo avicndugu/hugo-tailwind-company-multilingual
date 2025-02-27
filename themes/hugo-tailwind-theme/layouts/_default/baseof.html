@@ -10,5 +10,6 @@
     {{ if .Site.Params.cookie_consent }}
         {{ partial "cookie-consent-script.html" . }}
     {{ end }}
+    {{ partial "language-switch-script.html" . }}
 </body>
 </html>

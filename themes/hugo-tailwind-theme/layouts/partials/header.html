@@ -13,10 +13,11 @@
                 <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m13 16.745c0-.414-.336-.75-.75-.75h-9.5c-.414 0-.75.336-.75.75s.336.75.75.75h9.5c.414 0 .75-.336.75-.75zm9-5c0-.414-.336-.75-.75-.75h-18.5c-.414 0-.75.336-.75.75s.336.75.75.75h18.5c.414 0 .75-.336.75-.75zm-4-5c0-.414-.336-.75-.75-.75h-14.5c-.414 0-.75.336-.75.75s.336.75.75.75h14.5c.414 0 .75-.336.75-.75z" fill-rule="nonzero"/></svg>
         </div>
     </div>
-    <div id="menu-list" class="hidden lg:flex items-center border-2 lg:border-0 border-[#E0E4FC] lg:bg-transparent p-8 lg:p-0 rounded-2xl text-center">
-        <div class="lg:flex">
+    <div id="menu-list" class="hidden lg:flex items-center border-2 lg:border-0 border-[#E0E4FC] lg:bg-transparent p-8 lg:p-0 rounded-2xl text-center gap-2 ">
+        <div class="lg:flex lg:gap-x-8">
             {{ partial "menu.html" }}
         </div>
+        {{ partial "language-switch.html" . }}
         {{ with .Site.Params.menu_button }}
         <a href={{ .link }} class="bg-custom-dark text-white font-bold text-base px-10 py-4 rounded-2xl w-full lg:w-fit inline-block">
             {{ .text }}
