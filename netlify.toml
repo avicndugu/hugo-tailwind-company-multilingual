@@ -1,6 +1,6 @@
 [build]
   publish = "public"
-  command = "hugo"
+  command = "npm run install-deps --prefix themes/hugo-tailwind-theme && npm run build --prefix themes/hugo-tailwind-theme && hugo"
 
 [context.production.environment]
   HUGO_VERSION = "0.140.2" # Replace with the latest stable version
